@@ -1,0 +1,50 @@
+﻿@model IEnumerable<RentalVehicle.Models.RentalBooking>
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to Home</a>
+@if(!Model.Any()) {
+    <div class="access-denied-container text-center">
+        <h1>There is no Booking for now</h1>
+        <h2>Go And Booking a Vehicle</h2>
+        <p>You do not have Any Bookings right now</p>
+        <a asp-controller="Vehicles" asp-action="Index" class="home-button btn btn-primary">Go to Vehicle page</a>
+    </div>
+}
+else {
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Role") == "Admin")
+                        {
+                            <h5 class="card-title">Customers Details</h5>
+                        }
+                        else
+                        {
+                            <h5 class="card-title">Your Details</h5>
+                        }
+                        <p class="card-text">
+                            <strong>@Html.DisplayNameFor(model => model.BookingID) : </strong>@Html.DisplayFor(modelItem => item.BookingID) <br>
+                            <strong>@Html.DisplayNameFor(model => model.Customer.CustomerName) : </strong>@Html.DisplayFor(modelItem => item.Customer.CustomerName) <br>
+                            <strong>@Html.DisplayNameFor(model => model.RentalStartDate) : </strong>@Html.DisplayFor(modelItem => item.RentalStartDate) <br>
+                            <strong>@Html.DisplayNameFor(model => model.RentalEndDate) : </strong> @Html.DisplayFor(modelItem => item.RentalEndDate) <br>
+                            <strong>@Html.DisplayNameFor(model => model.PickupLocation) : </strong>@Html.DisplayFor(modelItem => item.PickupLocation)<br>
+                            <strong>@Html.DisplayNameFor(model => model.DropoffLocation) : </strong>@Html.DisplayFor(modelItem => item.DropoffLocation)<br>
+                            <strong>@Html.DisplayNameFor(model => model.InitialRentalDays) : </strong> @Html.DisplayFor(modelItem => item.InitialRentalDays) <br>
+                            <strong>@Html.DisplayNameFor(model => model.RentalPricePerDay) : </strong>@Html.DisplayFor(modelItem => item.RentalPricePerDay) <br>
+                            <strong>@Html.DisplayNameFor(model => model.InitialTotalDueAmount) : </strong> @Html.DisplayFor(modelItem => item.InitialTotalDueAmount) <br>
+
+                            <strong>Vehicle :</strong> @Html.DisplayFor(modelItem => item.Vehicles.Model) <br />
+                            <a asp-action="Edit" asp-route-id="@item.BookingID" class="btn btn-primary">Edit</a> |
+                            @if (HttpContextAccessor.HttpContext.Session.GetString("Role") == "Admin")
+                            {
+                                <a asp-action="Delete" asp-route-id="@item.BookingID" class="btn btn-danger">Delete</a>
+                                <a asp-controller="RentalTransactions" asp-action="Create" class="btn">Create Transaction</a>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

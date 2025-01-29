@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RentalVehicle.Models.Vehicle>
+
+@foreach (var item in Model)
+{
+    <div class="categories-item p-4">
+        <div class="categories-item-inner">
+            <div class="categories-img rounded-top">
+                <img src="/VehiclesImage/@item.Image" class="img-fluid rounded-top" style="height: 200px" alt="">
+            </div>
+            <div class="categories-content rounded-bottom p-4">
+                <h4>@item.Model</h4>
+                <div class="categories-review mb-4">
+                    <div class="me-3">4.5 Review</div>@* Review from data base *@
+                    <div class="d-flex justify-content-center text-secondary">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star text-body"></i>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">@item.RentalPricePerDay $/Day</h4>
+                </div>
+                <div class="row gy-2 gx-0 text-center mb-4">
+                    <div class="col-4 border-end border-white">
+                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">@item.SeatsCount Seat</span>
+                    </div>
+                    <div class="col-4 border-end border-white">
+                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">@item.TransmissionType.Substring(0, 1)T</span>
+                    </div>
+                    <div class="col-4">
+                        <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">@item.FuleType?.FuleType</span>
+                    </div>
+                    <div class="col-4 border-end border-white">
+                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">@item.Year.Year</span>
+                    </div>
+                    <div class="col-4 border-end border-white">
+                        <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">@item.TransmissionType.Substring(0, 4)</span>
+                    </div>
+                    <div class="col-4">
+                        <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">@item.Mileage K</span>
+                    </div>
+                </div>
+                <a asp-controller="RentalBookings" asp-action="Create" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book Now</a>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("Role") == "Admin")
+                {
+                    <div class="mt-4">
+                        <a asp-action="Edit" asp-route-id="@item.VehicleID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.VehicleID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.VehicleID">Delete</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

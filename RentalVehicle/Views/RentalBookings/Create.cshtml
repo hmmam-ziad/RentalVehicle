@@ -1,0 +1,290 @@
+﻿@model RentalVehicle.Models.RentalBooking
+<link href="~/css/booking.css" rel="stylesheet" />
+<div class="header-carousel">
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="~/img/carousel-2.jpg" class="img-fluid w-100" alt="First slide" />
+                <div class="carousel-caption">
+                    <div class="container py-4">
+                        <div class="row g-5">
+                            <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+                                <div class="bg-secondary rounded p-5 shadow-lg">
+                                    <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
+                                    <form asp-action="Create" method="post" id="rentalForm">
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <svg class="h-8 w-8 text-red-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" />
+                                                            <circle cx="7" cy="17" r="2" />
+                                                            <circle cx="17" cy="17" r="2" />
+                                                            <path d="M5 17h-2v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5" />
+                                                        </svg>
+                                                        <span class="ms-1">Cars</span>
+                                                    </div>
+                                                    <select asp-for="VehicleID" asp-items="@(new SelectList(ViewBag.AvailableVehicles, "VehicleID", "Model"))" class="form-control equal-height">
+                                                        <option value="">-- Select Vehicle --</option>
+                                                    </select>
+                                                    <span asp-validation-for="VehicleID" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
+                                                    </div>
+                                                    <input asp-for="PickupLocation" class="form-control equal-height" />
+                                                    <span asp-validation-for="PickupLocation" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
+                                                    </div>
+                                                    <input asp-for="DropoffLocation" class="form-control equal-height" />
+                                                    <span asp-validation-for="DropoffLocation" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                                                    </div>
+                                                    <input asp-for="RentalStartDate" class="form-control equal-height" id="RentalStartDate" />
+                                                    <span id="dateError" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                                                    </div>
+                                                    <input asp-for="RentalEndDate" class="form-control equal-height" id="RentalEndDate" />
+                                                    <span id="dateError" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="ms-1">Check Notes</span>
+                                                    </div>
+                                                    <input asp-for="InitialCheckNotes" class="form-control equal-height" />
+                                                    <span asp-validation-for="InitialCheckNotes" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <input type="submit" id="myInput" value="Book Now" class="btn btn-light w-100 py-2 shadow equal-height" />
+                                                    <a asp-controller="Vehicles" asp-action="Index" class="text-white pt-5">Back to Cars</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
+                                <div class="container-fluid categories py-5">
+                                    <div class="container py-5">
+                                        <div class="col-md-12 mb-4" id="CarError">
+                                            <div class="categories-item p-4 border rounded shadow-lg"
+                                                 style="border: 2px solid #4CAF50; background: linear-gradient(145deg, #1E2B48, #22334D); color: white; transition: all 0.3s ease;">
+                                                <div class="categories-img overflow-hidden rounded-top position-relative" style="height: 220px;">
+                                                    <img id="imageV" src="~/img/car-image.jpg" class="img-fluid w-100 h-100"
+                                                         style="object-fit: cover; transition: transform 0.3s;" alt="Car Image">
+                                                    <span class="position-absolute top-0 start-0 bg-primary text-white px-3 py-1 rounded-end">
+                                                        Featured
+                                                    </span>
+                                                </div>
+                                                <div class="categories-content p-4 text-center">
+                                                    <h4 id="modelV" class="text-white fw-bold mb-3">Model Name</h4>
+                                                    <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-3 d-inline-block" id="priceV">
+                                                        $99 / day
+                                                    </h4>
+                                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                                        <div class="col-4 border-end border-secondary">
+                                                            <i class="fa fa-users text-warning"></i>
+                                                            <span class="text-white ms-1" id="seatV">4 Seats</span>
+                                                        </div>
+                                                        <div class="col-4 border-end border-secondary">
+                                                            <i class="fa fa-cogs text-warning"></i>
+                                                            <span class="text-white ms-1" id="transmissionV">Automatic</span>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <i class="fa fa-road text-warning"></i>
+                                                            <span class="text-white ms-1" id="mileV">15,000 miles</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row gy-2 gx-0 text-center mb-4">
+                                                        <div class="col-6 border-end border-secondary">
+                                                            <i class="fa fa-calendar text-warning"></i>
+                                                            <span class="text-white ms-1" id="yearV">2023</span>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <i class="fa fa-gas-pump text-warning"></i>
+                                                            <span class="text-white ms-1" id="fuleV">Electric</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> <!-- End of carousel-item -->
+            </div> <!-- End of carousel-inner -->
+        </div> <!-- End of carousel -->
+    </div> <!-- End of header-carousel -->
+</div>
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+            document.getElementById('RentalStartDate').addEventListener('change', function() {
+            const inputDate = new Date(this.value);
+            const currentDate = new Date();
+            const input = document.getElementById("myInput");
+
+            
+            if (inputDate <= currentDate) {
+                document.getElementById('dateError').innerText = "Rental Start Date must be in the future.";
+                input.disabled = true;
+            } else {
+                document.getElementById('dateError').innerText = "";
+                input.disabled = false;
+            }
+            checkVehicleAvailability()
+        });
+
+        
+
+        document.getElementById('RentalEndDate').addEventListener('change', function() {
+            const inputDate = new Date(this.value);
+            const startDate = new Date(document.getElementById('RentalStartDate').value);
+            const input = document.getElementById("myInput");
+
+            
+            if (inputDate <= startDate) {
+                document.getElementById('dateError').innerText = "End Date must be greater than Start Date.";
+                input.disabled = true;
+            } else {
+                document.getElementById('dateError').innerText = "";
+                input.disabled = false;
+            }
+            checkVehicleAvailability()
+        });
+
+        
+        function checkVehicleAvailability() {
+            const vehicleId = document.getElementById("VehicleID").value;
+            const rentalStartDate = document.getElementById("RentalStartDate").value;
+            const rentalEndDate = document.getElementById("RentalEndDate").value;
+
+            
+            if (!vehicleId || !rentalStartDate || !rentalEndDate) {
+                return; 
+            }
+
+            
+            const startDate = new Date(rentalStartDate).toISOString();
+            const endDate = new Date(rentalEndDate).toISOString();
+
+            
+            $.ajax({
+                url: '/RentalBookings/CheckAvailability',  
+                type: 'GET',
+                data: {
+                    vehicleId: vehicleId,
+                    startDate: startDate,
+                    endDate: endDate
+                },
+                success: function(response) {
+                    const dateError = document.getElementById('dateError');
+                    const input = document.getElementById("myInput");
+
+                    if (response.isAvailable) {
+                        dateError.innerText = ""; 
+                        input.disabled = false;
+                    } else {
+                        
+                        dateError.innerText = `This vehicle is already booked from ${response.startDate} to ${response.endDate}.`;
+                        input.disabled = true;
+                    }
+                },
+                error: function() {
+                    document.getElementById('dateError').innerText = "An error occurred while checking availability.";
+                }
+            });
+        }
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const mySelect = document.querySelector('select');
+            const vehicleElement = document.getElementById('VehicleID');
+            // console.log(vehicleElement.value);
+
+            if (!mySelect || !vehicleElement) {
+                console.error('Required elements (mySelect or VehicleID) not found in the DOM.');
+                return;
+            }
+
+            mySelect.addEventListener('change', function() {
+                const vehicleId = vehicleElement.value;
+                if (!vehicleId) {
+                    document.getElementById('CarError').innerText = "Please select a vehicle.";
+                    return;
+                }
+
+                const image = document.getElementById('imageV');
+                const model = document.getElementById('modelV');
+                const price = document.getElementById('priceV');
+                const seat = document.getElementById('seatV');
+                const transmission = document.getElementById('transmissionV');
+                const fule = document.getElementById('fuleV');
+                const year = document.getElementById('yearV');
+                const transmission1 = document.getElementById('transmissionV1');
+                const mile = document.getElementById('mileV');
+
+                $.ajax({
+                    url: '/RentalBookings/GetVehicleDetails',
+                    type: 'GET',
+                    data: {
+                        vehicleId: vehicleId
+                    },
+                    success: function(response) {
+                        if (response) {
+                            image.src = '/VehiclesImage/' + response.image;
+                            model.innerText = response.model;
+                            price.innerText = response.price + '$';
+                            seat.innerText = response.seat;
+                            fule.innerText = response.fule;
+                            transmission.innerText = response.transmission;
+                            year.innerText = response.year;
+                            transmission1.innerText = response.transmission;
+                            mile.innerText = response.mile;
+                        } else {
+                            document.getElementById('CarError').innerText = "Vehicle details not found.";
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error:', error);
+                        document.getElementById('CarError').innerText = "An error occurred while fetching vehicle details.";
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+}

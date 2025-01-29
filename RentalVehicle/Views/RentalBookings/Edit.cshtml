@@ -1,0 +1,146 @@
+﻿@model RentalVehicle.Models.RentalBooking
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>RentalBooking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BookingID" />
+            <div class="form-group">
+                <label asp-for="CustomerID" class="control-label">Customer Name</label>
+                @* <select asp-for="CustomerID" class ="form-control" asp-items="ViewBag.CustomerID"></select> *@
+                <input type="text" class="form-control" value="@ViewBag.CutomerName" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleID" class="control-label"></label>
+                <select asp-for="VehicleID" class="form-control" asp-items="ViewBag.VehicleID"></select>
+                <span asp-validation-for="VehicleID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentalStartDate" class="control-label"></label>
+                <input asp-for="RentalStartDate" class="form-control" />
+                <span id="dateError" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RentalEndDate" class="control-label"></label>
+                <input asp-for="RentalEndDate" class="form-control" />
+                <span id="dateError" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PickupLocation" class="control-label"></label>
+                <input asp-for="PickupLocation" class="form-control" />
+                <span asp-validation-for="PickupLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DropoffLocation" class="control-label"></label>
+                <input asp-for="DropoffLocation" class="form-control" />
+                <span asp-validation-for="DropoffLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InitialCheckNotes" class="control-label"></label>
+                <input asp-for="InitialCheckNotes" class="form-control" />
+                <span asp-validation-for="InitialCheckNotes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="myInput" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+            document.getElementById('RentalStartDate').addEventListener('change', function() {
+            const inputDate = new Date(this.value);
+            const currentDate = new Date();
+            const input = document.getElementById("myInput");
+
+            if (inputDate <= currentDate)
+            {
+                document.getElementById('dateError').innerText = "Rental Start Date must be in the future.";
+                input.disabled = true;
+            }
+            else
+            {
+                document.getElementById('dateError').innerText = "";
+                input.disabled = false;
+            }
+            checkVehicleAvailability();
+        });
+        document.getElementById('RentalEndDate').addEventListener('change', function() {
+            const inputDate = new Date(this.value);
+            const startDate = new Date(document.getElementById('RentalStartDate').value);
+            const input = document.getElementById("myInput");
+
+
+            if (inputDate <= startDate) {
+                document.getElementById('dateError').innerText = "End Date must be greater than Start Date.";
+                input.disabled = true;
+            } else {
+                document.getElementById('dateError').innerText = "";
+                input.disabled = false;
+            }
+            checkVehicleAvailability();
+        });
+
+        function checkVehicleAvailability() {
+            const vehicleId = document.getElementById("VehicleID").value;
+            const rentalStartDate = document.getElementById("RentalStartDate").value;
+            const rentalEndDate = document.getElementById("RentalEndDate").value;
+
+
+            if (!vehicleId || !rentalStartDate || !rentalEndDate) {
+                return;
+            }
+
+
+            const startDate = new Date(rentalStartDate).toISOString();
+            const endDate = new Date(rentalEndDate).toISOString();
+
+
+            $.ajax({
+                url: '/RentalBookings/CheckAvailability',
+                type: 'GET',
+                data: {
+                    vehicleId: vehicleId,
+                    startDate: startDate,
+                    endDate: endDate
+                },
+                success: function(response) {
+                    const dateError = document.getElementById('dateError');
+                    const input = document.getElementById("myInput");
+
+                    if (response.isAvailable) {
+                        dateError.innerText = "";
+                        input.disabled = false;
+                    } else {
+
+                        dateError.innerText = `This vehicle is already booked from ${response.startDate} to ${response.endDate}.`;
+                        input.disabled = true;
+                    }
+                },
+                error: function() {
+                    document.getElementById('dateError').innerText = "An error occurred while checking availability.";
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,36 @@
+﻿@model RentalVehicle.Models.Vehicle
+<div class="card shadow border-0 mb-5 rounded">
+    <div class="card-header bg-gradient text-light py-4 text-center rounded-top">
+        <div class="container-fluid bg-breadcrumb">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown">@Model.Make</h4>
+            <h3 class="text-white display-4 mb-4 wow fadeInDown">@Model.Model</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 text-center mb-3">
+                <img src="~/VehiclesImage/@Model.Image" class="img-fluid rounded shadow" alt="@Model.Make @Model.Model" />
+            </div>
+            <div class="col-lg-6">
+                <h6><i class="fas fa-car"></i> Category Type: <strong>@Model.VehicleCategories.CategoryName</strong></h6>
+                <h6><i class="fas fa-calendar"></i> Year: <strong>@Model.Year.Year</strong></h6>
+                <h6><i class="fas fa-gas-pump"></i> Fuel Type: <strong>@Model.FuleType?.FuleType</strong></h6>
+                <h6><i class="fas fa-tachometer-alt"></i> Mileage: <strong>@Model.Mileage</strong></h6>
+                <h6><i class="fas fa-tag"></i> Plate Number: <strong>@Model.PlateNumber</strong></h6>
+                <h6><i class="fas fa-cogs"></i> Transmission Type: <strong>@Model.TransmissionType</strong></h6>
+                <h6><i class="fas fa-users"></i> Seats Count: <strong>@Model.SeatsCount</strong></h6>
+                <h6><i class="fas fa-dollar-sign"></i> Rental Price per Day: <strong>$@Model.RentalPricePerDay</strong></h6>
+
+                <div class="mt-3">
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("Role") == "Admin")
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.VehicleID" class="btn btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@Model.VehicleID" class="btn btn-danger">Delete</a>
+                    }
+                    <a asp-controller="RentalBookings" asp-action="Create" class="btn btn-primary rounded-pill">Book Now</a>
+                    <a asp-action="Index" class="btn btn-light">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

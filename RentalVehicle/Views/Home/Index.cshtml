@@ -1,0 +1,679 @@
+﻿@model IEnumerable<RentalVehicle.Models.Vehicle>
+
+<!-- Carousel Start -->
+<div class="header-carousel">
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+            <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="~/img/carousel-2.jpg" class="img-fluid w-100" alt="First slide" />
+                <div class="carousel-caption">
+                    <div class="container py-4">
+                        <div class="row g-5">
+                            <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+                                <div class="bg-secondary rounded p-5">
+                                    <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>Select Your Car type</option>
+                                                    <option value="1">VW Golf VII</option>
+                                                    <option value="2">Audi A1 S-Line</option>
+                                                    <option value="3">Toyota Camry</option>
+                                                    <option value="4">BMW 320 ModernLine</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
+                                                    </div>
+                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
+                                                    </div>
+                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                                                    </div>
+                                                    <input class="form-control" type="date">
+                                                    <select class="form-select ms-3" aria-label="Default select example">
+                                                        <option selected>12:00AM</option>
+                                                        <option value="1">1:00AM</option>
+                                                        <option value="2">2:00AM</option>
+                                                        <option value="3">3:00AM</option>
+                                                        <option value="4">4:00AM</option>
+                                                        <option value="5">5:00AM</option>
+                                                        <option value="6">6:00AM</option>
+                                                        <option value="7">7:00AM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                                                    </div>
+                                                    <input class="form-control" type="date">
+                                                    <select class="form-select ms-3" aria-label="Default select example">
+                                                        <option selected>12:00AM</option>
+                                                        <option value="1">1:00AM</option>
+                                                        <option value="2">2:00AM</option>
+                                                        <option value="3">3:00AM</option>
+                                                        <option value="4">4:00AM</option>
+                                                        <option value="5">5:00AM</option>
+                                                        <option value="6">6:00AM</option>
+                                                        <option value="7">7:00AM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="ms-1">Check Notes</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <a asp-controller="RentalBookings" asp-action="Create" class="btn btn-light w-100 py-2">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
+                                <div class="text-start">
+                                    <h1 class="display-5 text-white">Get 15% off your rental Plan your trip now</h1>
+                                    <p>Treat yourself in Jordan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/img/carousel-1.jpg" class="img-fluid w-100" alt="First slide" />
+                <div class="carousel-caption">
+                    <div class="container py-4">
+                        <div class="row g-5">
+                            <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+                                <div class="bg-secondary rounded p-5">
+                                    <h4 class="text-white mb-4">CONTINUE CAR RESERVATION</h4>
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>Select Your Car type</option>
+                                                    <option value="1">VW Golf VII</option>
+                                                    <option value="2">Audi A1 S-Line</option>
+                                                    <option value="3">Toyota Camry</option>
+                                                    <option value="4">BMW 320 ModernLine</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Pick Up</span>
+                                                    </div>
+                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
+                                                    </div>
+                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                                                    </div>
+                                                    <input class="form-control" type="date">
+                                                    <select class="form-select ms-3" aria-label="Default select example">
+                                                        <option selected>12:00AM</option>
+                                                        <option value="1">1:00AM</option>
+                                                        <option value="2">2:00AM</option>
+                                                        <option value="3">3:00AM</option>
+                                                        <option value="4">4:00AM</option>
+                                                        <option value="5">5:00AM</option>
+                                                        <option value="6">6:00AM</option>
+                                                        <option value="7">7:00AM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                                                    </div>
+                                                    <input class="form-control" type="date">
+                                                    <select class="form-select ms-3" aria-label="Default select example">
+                                                        <option selected>12:00AM</option>
+                                                        <option value="1">1:00AM</option>
+                                                        <option value="2">2:00AM</option>
+                                                        <option value="3">3:00AM</option>
+                                                        <option value="4">4:00AM</option>
+                                                        <option value="5">5:00AM</option>
+                                                        <option value="6">6:00AM</option>
+                                                        <option value="7">7:00AM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                        <span class="ms-1">Check Notes</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <a asp-controller="RentalBookings" asp-action="Create" class="btn btn-light w-100 py-2">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
+                                <div class="text-start">
+                                    <h1 class="display-5 text-white">Get 15% off your rental! Choose Your Model </h1>
+                                    <p>Treat yourself in Jordan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+<!-- Features Start -->
+<div class="container-fluid feature py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Features</span></h1>
+            <p class="mb-0">
+                Experience Excellence with Our Services
+                <br />
+                Discover the standout features that set us apart:
+            </p>
+        </div>
+        <div class="row g-4 align-items-center">
+            <div class="col-xl-4">
+                <div class="row gy-4 gx-0">
+                    <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <span class="fa fa-trophy fa-2x"></span>
+                            </div>
+                            <div class="ms-4">
+                                <h5 class="mb-3">First Class services</h5>
+                                <p class="mb-0">We provide top-notch services to ensure a seamless and enjoyable experience. Our dedicated team is committed to meeting your needs and exceeding your expectations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <span class="fa fa-road fa-2x"></span>
+                            </div>
+                            <div class="ms-4">
+                                <h5 class="mb-3">24/7 road assistance</h5>
+                                <p class="mb-0">Your safety is our priority. With round-the-clock road assistance, you can travel with peace of mind, knowing help is just a call away.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                <img src="~/img/HyndaiAva.png" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
+            </div>
+            <div class="col-xl-4">
+                <div class="row gy-4 gx-0">
+                    <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="feature-item justify-content-end">
+                            <div class="text-end me-4">
+                                <h5 class="mb-3">Quality at Minimum</h5>
+                                <p class="mb-0">Experience premium quality without breaking the bank. We strive to offer the best value for our services, ensuring you get the most out of your investment.</p>
+                            </div>
+                            <div class="feature-icon">
+                                <span class="fa fa-tag fa-2x"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="feature-item justify-content-end">
+                            <div class="text-end me-4">
+                                <h5 class="mb-3">Free Pick-Up & Drop-Off</h5>
+                                <p class="mb-0">Enjoy the convenience of complimentary pick-up and drop-off services. We make it easy for you to start and end your journey effortlessly.</p>
+                            </div>
+                            <div class="feature-icon">
+                                <span class="fa fa-map-pin fa-2x"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Features End -->
+<!-- About Start -->
+<div class="container-fluid overflow-hidden about py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="about-item">
+                    <div class="pb-5">
+                        <h1 class="display-5 text-capitalize">Cental <span class="text-primary">About</span></h1>
+                        <p class="mb-0">
+                            We are a company specialized in providing innovative solutions that meet the needs of our customers. We believe in the importance of quality and excellence in everything we offer. Our team of professional experts always strives to provide the best services and an unforgettable customer experience.
+                        </p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="about-item-inner border p-4">
+                                <div class="about-icon mb-4">
+                                    <img src="~/img/about-icon-1.png" class="img-fluid w-50 h-50" alt="Icon">
+                                </div>
+                                <h5 class="mb-3">Our Vision</h5>
+                                <p class="mb-0">To lead the industry in innovative solutions that enhance our customers' lives.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-item-inner border p-4">
+                                <div class="about-icon mb-4">
+                                    <img src="~/img/about-icon-2.png" class="img-fluid h-50 w-50" alt="Icon">
+                                </div>
+                                <h5 class="mb-3">Our Mision</h5>
+                                <p class="mb-0">We strive to provide exceptional products that prioritize quality and customer satisfaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-item my-4">
+                        We are committed to providing outstanding solutions that meet our customers' needs. Our team of experts strives to provide quality services and an exceptional experience. We believe that innovation and dedication are the key to success, and we work hard to give our best on every project.
+                    </p>
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="text-center rounded bg-secondary p-4">
+                                <h1 class="display-6 text-white">17</h1>
+                                <h5 class="text-light mb-0">Years Of Experience</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="rounded">
+                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> We are a company specialized in providing innovative solutions.</p>
+                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Providing high quality products that benefit our customers.</p>
+                                <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Innovation, quality, and transparency in work.</p>
+                                <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i> We are committed to meeting your needs efficiently.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 d-flex align-items-center">
+                            <a href="#moree" class="btn btn-primary rounded py-3 px-5">More About Us</a>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="d-flex align-items-center">
+                                <img src="~/img/attachment-img.jpg" class="img-fluid rounded-circle border border-4 border-secondary" style="width: 100px; height: 100px;" alt="Image">
+                                <div class="ms-4">
+                                    <h4>William Burgess</h4>
+                                    <p class="mb-0">Carveo Founder</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="about-img">
+                    <div class="img-1">
+                        <img src="~/img/about-img.jpg" class="img-fluid rounded h-100 w-100" alt="">
+                    </div>
+                    <div class="img-2">
+                        <img src="~/img/features-img.png" class="img-fluid rounded w-100" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Fact Counter -->
+<div class="container-fluid counter bg-secondary py-5">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="counter-item text-center">
+                    <div class="counter-item-icon mx-auto">
+                        <i class="fas fa-thumbs-up fa-2x"></i>
+                    </div>
+                    <div class="counter-counting my-3">
+                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">829</span>
+                        <span class="h1 fw-bold text-white">+</span>
+                    </div>
+                    <h4 class="text-white mb-0">Happy Clients</h4>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="counter-item text-center">
+                    <div class="counter-item-icon mx-auto">
+                        <i class="fas fa-car-alt fa-2x"></i>
+                    </div>
+                    <div class="counter-counting my-3">
+                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">56</span>
+                        <span class="h1 fw-bold text-white">+</span>
+                    </div>
+                    <h4 class="text-white mb-0">Number of Cars</h4>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="counter-item text-center">
+                    <div class="counter-item-icon mx-auto">
+                        <i class="fas fa-building fa-2x"></i>
+                    </div>
+                    <div class="counter-counting my-3">
+                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">127</span>
+                        <span class="h1 fw-bold text-white">+</span>
+                    </div>
+                    <h4 class="text-white mb-0">Car Center</h4>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="counter-item text-center">
+                    <div class="counter-item-icon mx-auto">
+                        <i class="fas fa-clock fa-2x"></i>
+                    </div>
+                    <div class="counter-counting my-3">
+                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">589</span>
+                        <span class="h1 fw-bold text-white">+</span>
+                    </div>
+                    <h4 class="text-white mb-0">Total kilometers</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact Counter -->
+<!-- Services Start -->
+<div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Services</span></h1>
+            <p class="mb-0">
+                We offer a range of services designed to enhance your rental experience. From convenient phone reservations to special rates, we ensure you get the best value. Our one-way rental options and city-to-city services make travel easy, while our life insurance provides peace of mind. Plus, enjoy complimentary rides with select rentals. Experience seamless service tailored to your needs!
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-phone-alt fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">Phone Reservation</h5>
+                    <p class="mb-0">Easily reserve your vehicle with a simple phone call. Our friendly staff is ready to assist you in finding the perfect car for your needs, ensuring a smooth and hassle-free booking experience. Just call us, and we'll handle the rest!</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-money-bill-alt fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">Special Rates</h5>
+                    <p class="mb-0">Take advantage of our exclusive discounts on rentals. We offer special rates for long-term bookings, early reservations, and loyal customers. Enjoy high-quality vehicles at competitive prices, making your travel experience both affordable and enjoyable!</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-road fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">One Way Rental</h5>
+                    <p class="mb-0">Enjoy the flexibility of our one-way rental service. Rent a vehicle from one location and drop it off at another, making your journey more convenient. Whether you're traveling for business or pleasure, we make it easy to get to your destination without the hassle of returning the car to the original location.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-umbrella fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">Life Insurance</h5>
+                    <p class="mb-0">Protect yourself and your loved ones with our comprehensive life insurance options. Our plans provide financial security in case of unforeseen events, ensuring peace of mind while you travel. Choose from various coverage levels tailored to fit your needs and safeguard what matters most to you.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-building fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">City to City</h5>
+                    <p class="mb-0">Travel seamlessly between cities with our reliable city-to-city rental service. Whether you're planning a weekend getaway or a longer journey, we offer a wide range of vehicles to suit your travel needs. Enjoy the freedom to explore new destinations at your own pace, with convenient drop-off locations available in major cities.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-car-alt fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">Free Rides</h5>
+                    <p class="mb-0">Take advantage of our complimentary ride service with select rentals! Enjoy free transportation from your location to our rental facility, making your experience even more convenient. Whether you're heading to the airport or a nearby destination, we ensure a hassle-free start to your journey at no extra cost.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+<!-- Car categories Start -->
+<div class="container-fluid categories pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 text-capitalize mb-3">Vehicle <span class="text-primary">Categories</span></h1>
+            <p class="mb-0">
+                Explore our diverse range of vehicle categories designed to meet every travel need. From compact cars perfect for city driving to spacious SUVs for family adventures, we have something for everyone. Choose from economy, luxury, and specialty options, ensuring you find the ideal vehicle that suits your style and budget. Enjoy a seamless driving experience, no matter where your journey takes you!
+            </p>
+        </div>
+        <div class="categories-carousel owl-carousel wow fadeInUp" data-wow-delay="0.1s">
+            @foreach(var item in Model)
+            {
+                <div class="categories-item p-4">
+                    <div class="categories-item-inner">
+                        <div class="categories-img rounded-top">
+                            <img src="/VehiclesImage/@item.Image" style="height: 200px" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="categories-content rounded-bottom p-4">
+                            <h4>@item.Model</h4>
+                            <div class="categories-review mb-4">
+                                <div class="me-3">4 Review</div>
+                                <div class="d-flex justify-content-center text-secondary">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star text-body"></i>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$@item.RentalPricePerDay/Day</h4>
+                            </div>
+                            <div class="row gy-2 gx-0 text-center mb-4">
+                                <div class="col-4 border-end border-white">
+                                    <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">@item.SeatsCount Seat</span>
+                                </div>
+                                <div class="col-4 border-end border-white">
+                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">@item.TransmissionType.Substring(0, 1)T</span>
+                                </div>
+                                <div class="col-4">
+                                    <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">@item.FuleType?.FuleType</span>
+                                </div>
+                                <div class="col-4 border-end border-white">
+                                    <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">@item.Year.Year</span>
+                                </div>
+                                <div class="col-4 border-end border-white">
+                                    <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">@item.TransmissionType.Substring(0, 4)</span>
+                                </div>
+                                <div class="col-4">
+                                    <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">@item.Mileage K</span>
+                                </div>
+                            </div>
+                            <a asp-controller="RentalBookings" asp-action="Create" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book Now</a>
+                            <a asp-controller="Vehicles" asp-action="Details" asp-route-id="@item.VehicleID">Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Car categories End -->
+<!-- Car Steps Start -->
+<div class="container-fluid steps py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 text-capitalize text-white mb-3">Cental<span class="text-primary"> Process</span></h1>
+            <p class="mb-0 text-white">
+                Our streamlined process makes renting a car easier than ever. From getting in touch with us to selecting the perfect vehicle, and finally enjoying your ride, we ensure a hassle-free experience tailored just for you.
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="steps-item p-4 mb-4">
+                    <h4>Come In Contact</h4>
+                    <p class="mb-0">Reach out to us to start your journey. Our team is ready to assist you with all your car rental needs!</p>
+                    <div class="setps-number">01.</div>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="steps-item p-4 mb-4">
+                    <h4>Choose A Car</h4>
+                    <p class="mb-0">Select the perfect car from our wide range of options to match your style and needs!</p>
+                    <div class="setps-number">02.</div>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="steps-item p-4 mb-4">
+                    <h4>Enjoy Driving</h4>
+                    <p class="mb-0">Hit the road and enjoy a seamless driving experience with our reliable and comfortable vehicles!</p>
+                    <div class="setps-number">03.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Car Steps End -->
+<!-- Banner Start -->
+<div class="container-fluid banner pb-5 wow zoomInDown mt-5" data-wow-delay="0.1s">
+    <div class="container pb-5">
+        <div class="banner-item rounded">
+            <img src="~/img/banner-1.jpg" class="img-fluid rounded w-100" alt="">
+            <div class="banner-content">
+                <h2 class="text-primary">Rent Your Car</h2>
+                <h1 class="text-white">Interested in Renting?</h1>
+                <p class="text-white">Don't hesitate and send us a message.</p>
+                <div class="banner-btn">
+                    <a href="#" class="btn btn-secondary rounded-pill py-3 px-4 px-md-5 me-2">WhatchApp</a>
+                    <a href="#con" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner End -->
+<!-- Team Start -->
+<div class="container-fluid team pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Suport</span> Center</h1>
+            <p class="mb-0">
+                Welcome to our Customer Support Center, where we prioritize your needs and concerns. Our dedicated team is here to assist you with any questions regarding your rental, reservations, or services. From troubleshooting to providing guidance on our offerings, we aim to deliver prompt and effective support. Explore our FAQs, live chat, or reach out directly to ensure a smooth and enjoyable experience with us. Your satisfaction is our top priority!
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item p-4 pt-0">
+                    <div class="team-img">
+                        <img src="~/img/team-1.jpg" class="img-fluid rounded w-100" alt="Image">
+                    </div>
+                    <div class="team-content pt-4">
+                        <h4>MARTIN DOE</h4>
+                        <p>Profession</p>
+                        <div class="team-icon d-flex justify-content-center">
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item p-4 pt-0">
+                    <div class="team-img">
+                        <img src="~/img/team-2.jpg" class="img-fluid rounded w-100" alt="Image">
+                    </div>
+                    <div class="team-content pt-4">
+                        <h4>Noah DOE</h4>
+                        <p>Profession</p>
+                        <div class="team-icon d-flex justify-content-center">
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item p-4 pt-0">
+                    <div class="team-img">
+                        <img src="~/img/team-3.jpg" class="img-fluid rounded w-100" alt="Image">
+                    </div>
+                    <div class="team-content pt-4">
+                        <h4>Ethan DOE</h4>
+                        <p>Profession</p>
+                        <div class="team-icon d-flex justify-content-center">
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="team-item p-4 pt-0">
+                    <div class="team-img">
+                        <img src="~/img/team-4.jpg" class="img-fluid rounded w-100" alt="Image">
+                    </div>
+                    <div class="team-content pt-4">
+                        <h4>Travel Ease</h4>
+                        <p>Profession</p>
+                        <div class="team-icon d-flex justify-content-center">
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->

@@ -1,0 +1,56 @@
+﻿@model RentalVehicle.Models.Customer
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContactInformation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContactInformation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DriverLicenseNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DriverLicenseNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+        @if (HttpContextAccessor.HttpContext.Session.GetInt32("CustomerID") == 13)
+        {
+            <form asp-action="Details" method="post">
+            <dt class="coll-sm-2">
+                Do you want to change the user role?
+            </dt>
+            <dd class="col-sm-10">
+                <select asp-for="Role" class="form-control" asp-items="ViewBag.Role"></select>
+            </dd>
+            <dt class="col-sm-2">
+                <input type="submit" value="Change Role" class="btn btn-primary" />
+            </dt>
+            </form>
+        })
+    </dl>
+</div>
+<div>
+    @* <a asp-action="Edit" asp-route-id="@Model?.CustomerID">Edit</a> | *@
+    <a asp-action="Index">Back to List</a>
+</div>

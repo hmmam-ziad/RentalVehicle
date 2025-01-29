@@ -1,0 +1,29 @@
+﻿
+.form-sign,
+.form-login{
+    max-width: 500px;
+    background-color: #1f2e4e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.customer-label {
+    color: white;
+}
+
+.customer-input {
+    border: 1px solid white;
+}
+
+.btn-signin,
+.btn-login {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
+
+h2 {
+    color: white;
+}

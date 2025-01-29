@@ -1,0 +1,48 @@
+﻿@model Customer
+<link href="~/css/customersignin.css" rel="stylesheet" />
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">Sign In</h4>
+        <form asp-action="Register" class="container mt-5">
+
+            <div class="form-group mb-3">
+                <label asp-for="CustomerName" class="form-label customer-label">Customer Name</label>
+                <input asp-for="CustomerName" class="form-control customer-input" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ContactInformation" class="form-label customer-label">Contact Information</label>
+                <input asp-for="ContactInformation" class="form-control customer-input" />
+                <span asp-validation-for="ContactInformation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DriverLicenseNumber" class="form-label customer-label">Driver License Number</label>
+                <input asp-for="DriverLicenseNumber" class="form-control customer-input" />
+                <span asp-validation-for="DriverLicenseNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label customer-label">Email</label>
+                <input asp-for="Email" class="form-control customer-label customer-input" type="email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="Password" class="form-label customer-label">Password</label>
+                <input asp-for="Password" class="form-control customer-input" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-center">
+                <input type="submit" value="Sign In" class="btn btn-primary rounded-pill form-control" style="background-color: #EA001E" />
+            </div>
+
+            <div class="form-group mb-3 text-center">
+                <a asp-action="Login" style="color: white">Do You Have an Account?</a>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model Customer
+<link href="~/css/customersignin.css" rel="stylesheet" />
+
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">Login</h4>
+        <div class="login-page">
+            <form asp-action="Login" class="container mt-5">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="control-label customer-label"></label>
+                    <input asp-for="Email" class="form-control customer-input" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="control-label customer-label"></label>
+                    <input asp-for="Password" class="form-control customer-input" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3 text-center">
+                    <input type="submit" value="Login" class="btn btn-primary rounded-pill form-control" style="background-color: #EA001E" />
+                </div>
+                <div class="form-group mb-3 text-center">
+                    <a asp-action="Register" style="color: white">You Dont Have an Account?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
